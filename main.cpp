@@ -9,11 +9,14 @@ int main() {
     
     CrowdSight* crowdsight;
 
-    string license = "f187f8d8b27f424fbab9064c18a7e0e4";
+    //string license = "7a8785a125b248439d5a1a02f8dba034";
     string datadir = "/usr/local/crowdsight/data/";
 
-    crowdsight = new CrowdSight(datadir, DEVELOPER);
+    cout << "Init crowdsight..." << endl;
 
+    crowdsight = new CrowdSight(datadir, REDISTRIBUTION);
+
+    cout << "Authenticate..." << endl;
     if (!crowdsight->authenticate(license)) {
         delete crowdsight;
         crowdsight = NULL;
@@ -23,6 +26,7 @@ int main() {
 
     VideoCapture videoCapture;
 
+    cout << "OPen camera..." << endl;
     videoCapture.open(0);
 
     Mat frame;
